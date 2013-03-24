@@ -1,0 +1,12 @@
+Name: test-proxy
+Version: 0.0.1
+Cabal-Version: 1.16
+Build-Type: Simple
+License: BSD3
+
+Executable test-proxy
+  Default-Language: Haskell2010
+  Main-Is: Main.hs
+  Ghc-Options: -Wall -Werror -fno-warn-orphans
+  Build-Depends: base >= 4, network >= 2.4, conduit > 1.0, bytestring,
+                 resourcet, monads-tf, transformers

@@ -1,0 +1,8 @@
+A simple HTTP proxy server in Haskell. This proxy server doesn't do any caching,
+and doesn't do much integrity checking of incoming requests or of server replies,
+so it shouldn't be used anywhere where the client can't trust all servers they
+connect to.
+
+Purpose: test-proxy is designed to be a really simple proxy server implementation
+that developers can modify to test clients and web applications - the proxy can
+be modified to modify requests and / or replies to carry out custom tests.
