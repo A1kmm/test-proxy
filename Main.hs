@@ -136,7 +136,7 @@ proxySink = do
   
   if meth == "CONNECT" then doConnect url
     else do
-      structuredURL <- maybe sendInvalid return (parseURI . BSC.unpack $ url)
+      structuredURL <- maybe sendInvalid return (parseURIReference . BSC.unpack $ url)
       case () of
         () | uriIsAbsolute structuredURL ->
           if (uriScheme structuredURL /= "http:")
@@ -295,7 +295,7 @@ doProxyRequest meth uri headers content =
 doGet :: (ConnectionConduit m) =>
          [(BS.ByteString, BS.ByteString)] -> URI -> m ()
 doGet _headers _uri = do
-  sendWithHeader "404 Not Found" [] "That URI is invalid on this server"
+  sendWithHeader "404 Not Found" [] "That URI is invalid on this server.\n"
   proxySink
 
 main :: IO ()
